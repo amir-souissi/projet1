@@ -1,0 +1,34 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}Hello PhotoController!{% endblock %}
+
+{% block body %}
+    {{ form_start(form, {'attr':{'class':'text-start col-md-6 text-center'}}) }}
+    <div class="input-group input-group-outline my-3">
+        {{ form_widget(form.name) }}
+        <div class="text-danger">
+        {{ form_errors(form.name) }}
+        </div>
+    </div>
+    {{ form_rest(form) }}
+    <div class="text-center">
+        <button type="submit" class="btn bg-gradient-primary w-100 my-4 mb-2">Submit</button>
+    </div>
+
+    {{ form_end(form) }}
+
+    <div class="row mt-9">
+        {% for photo in photos %}
+        <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
+            <div class="card card-blog card-plain">
+                <div class="card-header p-0 mt-n4 mx-3">
+                    <a class="d-block shadow-xl border-radius-xl">
+                        <img src="{{ asset('photos/')~photo.name}}" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

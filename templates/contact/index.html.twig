@@ -1,0 +1,115 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact!{% endblock %}
+
+{% block body %}
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-title">
+                <h2>Contact</h2>
+            </div>
+
+            <div class="row mt-1">
+
+                <div class="col-lg-4">
+                    <div class="info">
+                        <div class="address">
+                            <i class="bi bi-geo-alt"></i>
+                            <h4>Location:</h4>
+                            <p>A108 Adam Street, New York, NY 535022</p>
+                        </div>
+
+                        <div class="email">
+                            <i class="bi bi-envelope"></i>
+                            <h4>Email:</h4>
+                            <p>info@example.com</p>
+                        </div>
+
+                        <div class="phone">
+                            <i class="bi bi-phone"></i>
+                            <h4>Call:</h4>
+                            <p>+1 5589 55488 55s</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg-8 mt-5 mt-lg-0">
+
+                    {# <form action="{{ path('contact') }}" method="post" role="form">
+                        <div class="row">
+                            <div class="col-md-6 form-group">
+                                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                            </div>
+                            <div class="col-md-6 form-group mt-3 mt-md-0">
+                                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                            </div>
+                        </div>
+                        <div class="form-group mt-3">
+                            <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+                        </div>
+                        <div class="form-group mt-3">
+                            <textarea class="form-control" name="message" rows="5" placeholder="Message" ></textarea>
+                        </div>
+                        <div class="my-3">
+                           <div class="alert-success">
+                                    {%  for message in app.flashes('success') %}
+                                        {{ message }}
+                                    {% endfor %}
+                                </div>
+                            <div class="alert-danger">
+                                    {%  for message in app.flashes('danger') %}
+                                        {{ message }}
+                                    {% endfor %}
+                                </div>
+                        </div>
+                        <div class="text-center"><button type="submit">Send Message</button></div>
+                    </form>#}
+                    {{ form_start(form) }}
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            {{ form_label(form.name) }}
+                            {{ form_widget(form.name, {'attr': {'class': 'form-control', 'placeholder': 'Your Name', 'required':true}}) }}
+                            {{ form_errors(form.name) }}
+                        </div>
+                        <div class="col-md-6 form-group mt-3 mt-md-0">
+                            {{ form_label(form.email) }}
+                            {{ form_widget(form.email, {'attr': {'class': 'form-control', 'placeholder': 'Your Email', 'required':true}}) }}
+                            {{ form_errors(form.email) }}
+                        </div>
+                    </div>
+                    <div class="form-group mt-3">
+                        {{ form_label(form.subject) }}
+                        {{ form_widget(form.subject, {'attr': {'class': 'form-control', 'placeholder': 'Your Subject', 'required':true}}) }}
+                        {{ form_errors(form.subject) }}
+                    </div>
+                    <div class="form-group mt-3">
+
+                        {{ form_label(form.message) }}
+                        {{ form_widget(form.message, {'attr': {'class': 'form-control', 'rows':'5', 'placeholder': 'Your Message', 'required':true}}) }}
+                        {{ form_errors(form.message) }}
+                    </div>
+                    <div class="my-3">
+                        <div class="alert-success">
+                            {%  for message in app.flashes('success') %}
+                                {{ message }}
+                            {% endfor %}
+                        </div>
+                        <div class="alert-danger">
+                            {%  for message in app.flashes('danger') %}
+                                {{ message }}
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="text-center"><button type="submit">Send Message</button></div>
+                    {{ form_end(form) }}
+                </div>
+
+            </div>
+
+        </div>
+    </section><!-- End Contact Section -->
+{% endblock %}
