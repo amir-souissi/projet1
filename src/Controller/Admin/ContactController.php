@@ -26,4 +26,14 @@ class ContactController extends AbstractController
             'contacts' => $contacts
         ]);
     }
+    #[Route('/admin/contact/delete/{id}', name: 'admin_contact_delete')]
+    public function delete(Contant $contact, EntityManagerInterface $em): Response
+    {
+        //$contact = $em->getRepository(Contant::class)->find($id);
+        $em->remove($contact);
+        $em->flush();
+        $this->addFlash("success", "removed with success");
+        return $this->redirectToRoute('admin_contact');
+
+    }
 }

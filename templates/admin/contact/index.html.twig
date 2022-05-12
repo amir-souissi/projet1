@@ -11,6 +11,11 @@
         </div>
         <div class="card-body px-0 pb-2">
             <div class="table-responsive p-0">
+                <div class="alert-success">
+                    {% for message in app.flashes('success') %}
+                    {{ message }}
+                    {% endfor %}
+                </div>
                 <table class="table align-items-center mb-0">
                     <thead>
                     <tr>
@@ -22,7 +27,7 @@
                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                             message
                         </th>
-                        <th class="text-secondary opacity-7"></th>
+                        <th class="text-secondary opacity-7">actions</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -42,6 +47,9 @@
                             </td>
                             <td class="align-middle">
                                 {{ contact.createdAt|date('d-m-Y H:i:s') }}
+                            </td>
+                            <td class="align-middle">
+                                <a href="{{ path('admin_contact_delete',{'id': contact.id}) }}">delete contact</a>
                             </td>
                         </tr>
                     {% endfor %}
