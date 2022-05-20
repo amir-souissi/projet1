@@ -18,7 +18,7 @@
         <tbody>
         {% for article in articles %}
             <tr>
-                
+
                 <td>{{ article.name }}</td>
                 <td>{{ article.description }}</td>
                 <td>{% if article.category is not null %}{{ article.category.description }}{% else %} **** {% endif %}</td>
